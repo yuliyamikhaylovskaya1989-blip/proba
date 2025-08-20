@@ -35,8 +35,10 @@ def check():
         now = time.time()
         if now >= t:
             play_snd()
-t = None
-window.after(10000, check)
+            t = None
+    window.after(10000, check)
+
+
 def play_snd():
     pygame.mixer.init()
     pygame.mixer.music.load("reminder.mp3")
