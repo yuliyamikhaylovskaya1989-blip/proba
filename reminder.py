@@ -11,22 +11,22 @@ t = None
 
 def set():
     global t
-    rem = sd.askstring("Время напоминания", "Введите время в формате ЧЧ:ММ
-    (24-часовой формат)")
+    rem = sd.askstring("Время напоминания", "Введите время в формате ЧЧ:ММ (24-часовой формат)")
     if rem:
         try:
-        hour = int(rem.split(":")[0])
-        minute = int(rem.split(":")[1])
-        now = datetime.datetime.now()
-        print(now)
-        dt = now.replace(hour=hour, minute=minute)
-        print(dt)
-        t = dt.timestamp()
-        print(t)
-        label.config(text=f"Напоминание установлено на:
-                     {hour:02}:{minute:02}")
+            hour = int(rem.split(":")[0])
+            minute = int(rem.split(":")[1])
+            now = datetime.datetime.now()
+            #print(now)
+            dt = now.replace(hour=hour, minute=minute)
+            #print(dt)
+            t = dt.timestamp()
+            #print(t)
+            label.config(text=f"Напоминание установлено на:{hour:02}:{minute:02}")
         except ValueError:
-        mb.showerror("Ошибка", "Неверный формат времени")
+            mb.showerror("Ошибка", "Неверный формат времени")
+        except Exception as e:
+            mb.showerror("Ошибка", "Неизвестная ошибка")
 
 
 def check():
