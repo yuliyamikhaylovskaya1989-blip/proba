@@ -26,15 +26,15 @@ def set():
         except ValueError:
             mb.showerror("Ошибка", "Неверный формат времени")
         except Exception as e:
-            mb.showerror("Ошибка", "Неизвестная ошибка")
+            mb.showerror("Ошибка", f"Неизвестная ошибка {e}")
 
 
 def check():
-global t
-if t:
-now = time.time()
-if now >= t:
-play_snd()
+    global t
+    if t:
+        now = time.time()
+        if now >= t:
+            play_snd()
 t = None
 window.after(10000, check)
 def play_snd():
