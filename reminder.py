@@ -17,6 +17,8 @@ def set():
             hour = int(rem.split(":")[0])
             minute = int(rem.split(":")[1])
             now = datetime.datetime.now()
+            if 0<=hour>=23 or 0<=minute>=59:
+                mb.showerror("Ошибка", "Не вводите время с часами меньше 0 и больше 23, а минутами больше 59 и меньше 0.")
             #print(now)
             dt = now.replace(hour=hour, minute=minute)
             #print(dt)
